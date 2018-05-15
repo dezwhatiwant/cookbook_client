@@ -60,4 +60,9 @@ class Client::RecipesController < ApplicationController
     
   end
 
+  def destroy
+    recipe_id = params[:id]
+    response = Unirest.delete("http://localhost:3000/api/recipes/#{recipe_id}")
+    render 'destroy.html.erb'    
+  end
 end
