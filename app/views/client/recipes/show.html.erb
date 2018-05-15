@@ -3,4 +3,5 @@
 <h4>Ingredients: <%= @recipe["ingredients"] %></h4>
 <h4>Directions: <%= @recipe["directions"] %></h4>
 <img src="<%= @recipe['image_url'] %>">
-
+<br>
+<a href="/client/recipes/<%= @recipe["id"] %>/edit">Edit</a>
