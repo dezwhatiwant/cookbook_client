@@ -1,6 +1,15 @@
 class Client::RecipesController < ApplicationController
   def index
-    response = Unirest.get("http://localhost:3000/api/recipes")
+    client_params = {
+                     search: params[:search]
+                    }
+
+
+    response = Unirest.get(
+                           "http://localhost:3000/api/recipes",
+                           parameters: client_params
+                            )
+
     @recipes = response.body
     render 'index.html.erb'
 

@@ -1,3 +1,8 @@
+<%= form_tag "/client/recipes", method: :get do %>
+  <input type="text" name="search" placeholder="Search Term">
+  <input type="submit" value="Go!">
+<% end %>
+
 <% @recipes.each do |recipe| %>
   <h2> <a href="/client/recipes/<%= recipe["id"] %>"> <%= recipe["title"] %></a></h2>
   <h3>Chef: <%= recipe["chef"] %></h3>
