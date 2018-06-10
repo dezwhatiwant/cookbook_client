@@ -3,11 +3,18 @@
   <input type="submit" value="Go!">
 <% end %>
 
-<% @recipes.each do |recipe| %>
-  <h2> <a href="/client/recipes/<%= recipe["id"] %>"> <%= recipe["title"] %></a></h2>
-  <h3>Chef: <%= recipe["chef"] %></h3>
-  <h4>Prep Time: <%= recipe["formatted"]["prep_time"] %></h4>
-  <h4>Ingredients: <%= recipe["ingredients"] %></h4>
-  <h4>Directions: <%= recipe["directions"] %></h5>
-  <br>
-<% end %>
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= recipe['image_url'] %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= recipe["title"] %></h5>
+          <p class="card-text">Chef: <%= recipe["chef"] %></p>
+          <p class="card-text">Prep Time: <%= recipe["formatted"]["prep_time"] %></p>
+          <a href="/client/recipes/<%= recipe["id"] %>" class="btn btn-primary">More Info</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
